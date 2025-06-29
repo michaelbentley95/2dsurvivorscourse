@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cofdh3eaiyrmi"
-path="res://.godot/imported/basic_enemy.png-bcb3ae4d01d42218b1191142bc5bacbb.ctex"
+uid="uid://cgglyojy8xdqk"
+path="res://.godot/imported/experience_orb.png-d3bf7c62f009a0dce78b9cdfef0dda1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/basic_enemy/basic_enemy.png"
-dest_files=["res://.godot/imported/basic_enemy.png-bcb3ae4d01d42218b1191142bc5bacbb.ctex"]
+source_file="res://scenes/game_object/experience_orb/experience_orb.png"
+dest_files=["res://.godot/imported/experience_orb.png-d3bf7c62f009a0dce78b9cdfef0dda1b.ctex"]
 
 [params]
 
