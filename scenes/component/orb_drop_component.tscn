@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmiuhia0a8gni"]
+
+[ext_resource type="Script" uid="uid://bl15y8o5jheqb" path="res://scenes/component/orb_drop_component.gd" id="1_l1ouf"]
+[ext_resource type="PackedScene" uid="uid://0tuv61pii2fw" path="res://scenes/game_object/experience_orb/experience_orb.tscn" id="2_77mnb"]
+
+[node name="OrbDropComponent" type="Node"]
+script = ExtResource("1_l1ouf")
+orb_scene = ExtResource("2_77mnb")
