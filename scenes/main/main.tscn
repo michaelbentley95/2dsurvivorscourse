@@ -18,7 +18,25 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 4, 1, 65536, 4, 2, 0, 4, 3, 0, 4,
 position = Vector2(70, 55)
 
 [node name="BasicEnemy" parent="." instance=ExtResource("4_l3cfh")]
-position = Vector2(359, 163)
+position = Vector2(452, 138)
 
 [node name="BasicEnemy2" parent="." instance=ExtResource("4_l3cfh")]
-position = Vector2(130, 211)
+position = Vector2(118, 206)
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(497, 70)
+
+[node name="BasicEnemy4" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(554, 180)
+
+[node name="BasicEnemy5" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(231, 265)
+
+[node name="BasicEnemy6" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(213, 106)
+
+[node name="BasicEnemy7" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(397, 261)
+
+[node name="BasicEnemy8" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(355, 138)
