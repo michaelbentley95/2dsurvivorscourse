@@ -20,5 +20,6 @@ func on_died():
 	var spawn_position = (owner as Node2D).global_position
 	#create the orb
 	var orb_instance = orb_scene.instantiate() as Node2D
-	owner.get_parent().add_child(orb_instance)
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	entities_layer.add_child(orb_instance)
 	orb_instance.global_position = spawn_position
