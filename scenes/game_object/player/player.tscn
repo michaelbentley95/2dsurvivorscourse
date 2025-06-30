@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://y30u0a43pem0"]
+[gd_scene load_steps=8 format=3 uid="uid://y30u0a43pem0"]
 
 [ext_resource type="Script" uid="uid://5yh7f75okpyu" path="res://scenes/game_object/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://28csw3slg81r" path="res://scenes/game_object/player/player.png" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://ctnii82682m5b" path="res://scenes/ability/sword_ability/sword_ability_controller.tscn" id="2_lvxji"]
+[ext_resource type="Script" uid="uid://creub2pntxrsb" path="res://scenes/component/health_component.gd" id="2_ss5pk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3670"]
-radius = 18.0
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tj6oj"]
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 5.0
@@ -15,22 +19,38 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_dovo2")
 
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_ss5pk")
+metadata/_custom_type_script = "uid://creub2pntxrsb"
+
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_lvxji")]
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_s3670")
+[node name="InvincibilityFramesTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gmlin")
 offset = Vector2(0, -8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PickupArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="PickupCollisionShape2D" type="CollisionShape2D" parent="PickupArea2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_s3670")
+
+[node name="HurtCollisionArea2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="HurtCollisionShape2D" type="CollisionShape2D" parent="HurtCollisionArea2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_tj6oj")
+
+[node name="TerrainCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_lvxji")
