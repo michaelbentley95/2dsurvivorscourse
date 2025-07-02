@@ -4,6 +4,7 @@ const MAX_SPEED = 125
 const ACCELERATION_SMOOTHING = 25
 
 @onready var invincibility_frames_timer = $InvincibilityFramesTimer
+@onready var health_component = $HealthComponent
 
 var number_colliding_bodies = 0
 
@@ -11,6 +12,8 @@ func _ready() -> void:
 	$HurtCollisionArea2D.body_entered.connect(on_body_entered)
 	$HurtCollisionArea2D.body_exited.connect(on_body_exited)
 	invincibility_frames_timer.timeout.connect(check_deal_damage)
+	health_component.health_changed.connect(on_health_changed)
+	on_health_changed() #call at the beginning to instantiate the healthbar
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,9 +31,9 @@ func get_movement_vector() -> Vector2:
 func check_deal_damage():
 	if number_colliding_bodies == 0 || !invincibility_frames_timer.is_stopped():
 		return
-	$HealthComponent.damage(1)
+	health_component.damage(1)
 	invincibility_frames_timer.start()
-	print($HealthComponent.current_health)
+	print(health_component.current_health)
 
 func on_body_entered(other_body: Node2D) -> void:
 	number_colliding_bodies += 1
@@ -40,4 +43,8 @@ func on_body_entered(other_body: Node2D) -> void:
 
 func on_body_exited(other_body: Node2D) -> void:
 	number_colliding_bodies -= 1
+	return
+	
+func on_health_changed() -> void:
+	$HealthBar.value = health_component.get_health_percent()
 	return
